@@ -18,6 +18,8 @@ class App extends Component {
   async componentDidMount(){
     const manager = await lottery.methods.manager().call();
     const players = await lottery.methods.getPlayers().call();
+
+    console.log(players);
     const balance = await web3.eth.getBalance(lottery.options.address);
 
     this.setState( { manager, players, balance } );
